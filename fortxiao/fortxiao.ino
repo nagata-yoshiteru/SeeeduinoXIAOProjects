@@ -50,7 +50,7 @@ void fortniteCreativeLeave()
   pushHatButton(Hat::UP, 400);
   pushButton(Button::A, 300, 5);
   pushButton(Button::A, 17000);
-  for (int i = 0; i < 7; i++) {
+  for (int i = 0; i < 10; i++) {
     pushButton(Button::A, 400);
     pushButton(Button::B, 400);
   }
