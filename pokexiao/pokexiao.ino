@@ -358,30 +358,6 @@ void inAndOutCamp()
   pushButton(Button::A, 2000);
 }
 
-// Fortnite クリエ放置
-void fortniteCreativeLeave()
-{
-  pushButton(Button::X, 200);
-  delay(5000);
-  pushButton(Button::A, 200);
-  for (int i = 0; i < 32; i++)
-  {
-    delay(30000);
-  }
-  pushButton(Button::PLUS, 200);
-  for (int i = 0; i < 3; i++)
-  {
-    pushHatButton(Hat::RIGHT, 200);
-    delay(300);
-  }
-  pushHatButton(Hat::UP, 200);
-  delay(1000);
-  pushButton(Button::A, 200);
-  delay(1000);
-  pushButton(Button::A, 200);
-  delay(30000);
-}
-
 // get button input
 int getButton()
 {
@@ -748,8 +724,6 @@ void loop()
       pushButton(Button::HOME, 500);
       pushButton(Button::CAPTURE, 500);
       resetFunc();  //call reset
-    case 16:
-      fortniteCreativeLeave();
     default:
       resetFunc();  //call reset
       break;
