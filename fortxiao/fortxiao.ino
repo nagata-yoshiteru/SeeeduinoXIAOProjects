@@ -3,14 +3,16 @@
 #include "switch_controller_xiao.h"
 
 int LENGTH = 3600 / 10;
-int loop = 0;
+int lp = 0;
 
 void fortniteCreativeLeave()
 {
+  digitalWrite(13, LOW);
   pushButton(Button::X, 200, 2);
   pushButton(Button::X, 3000);
   pushButton(Button::A, 300, 9);
   pushButton(Button::CAPTURE, 300);
+  digitalWrite(13, HIGH);
   for (int i = 0; i < LENGTH + 4; i++)
   {
     delay(9750);
@@ -45,17 +47,12 @@ void fortniteCreativeLeave()
     }
     digitalWrite(13, HIGH);
   }
-  if (loop % 2 == 0){
+  if (lp % 2 == 0){
     pushButton(Button::PLUS, 400);
     pushHatButton(Hat::RIGHT, 400, 4);
     pushHatButton(Hat::UP, 400);
     pushButton(Button::A, 300, 5);
     pushButton(Button::A, 17000);
-    for (int i = 0; i < 10; i++) {
-      pushButton(Button::A, 400);
-      pushButton(Button::B, 400);
-    }
-    pushButton(Button::B, 1000);
   } else {
     digitalWrite(13, LOW);
     pushButton(Button::HOME, 700);
@@ -68,7 +65,14 @@ void fortniteCreativeLeave()
     digitalWrite(13, HIGH);
     delay(30000);
   }
-  loop++;
+  digitalWrite(13, LOW);
+  for (int i = 0; i < 10; i++) {
+    pushButton(Button::A, 400);
+    pushButton(Button::B, 400);
+  }
+  digitalWrite(13, HIGH);
+  pushButton(Button::B, 1000);
+  lp++;
 }
 
 void setup()
